@@ -80,7 +80,7 @@ export default function App() {
       }
 
       // Fallback for getting username, can be removed if World App is the only source
-      setUsername(`${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)}`);
+      setUsername(`${walletAddress?.slice(0, 6) || ''}...${walletAddress?.slice(-4) || ''}`);
     },
     [worldAppUser?.username],
   );
@@ -380,7 +380,7 @@ export default function App() {
               className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors"
             >
               {isWorldAppAuthenticated
-                ? `Connected: ${worldAppUser?.username || currentAddress?.slice(0, 6)}...`
+                ? `Connected: ${worldAppUser?.username || currentAddress?.slice(0, 6) || ''}...`
                 : "Connect World App"}
             </button>
           ) : (
